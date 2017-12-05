@@ -1,0 +1,10 @@
+body {
+    background:  #87e0fd;
+}
+
+.clock {
+    height: 100%;
+    width: 100%;
+    font-size: 4em;
+    margin: 100px 50px 50px 520px;
+}
