@@ -21,3 +21,12 @@ document.querySelectorAll('.clock')[0].innerHTML = harold(hours) + ":" + harold(
   }
 }
 setInterval(clock, 1000);
+
+var todo = document.getElementsByClassName('input_field').value;
+var todo_arr = [];
+
+function insert(ele) {
+    if(event.key === 'Enter') {
+        todo_arr.push(ele.value);
+    }
+}
