@@ -7,8 +7,10 @@
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" >
     <link href="css/main.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet" type="text/css"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
-    <title>To Do App</title>
+    <title>ToDo App</title>
 </head>
 <body onload="clock()">
 
@@ -20,26 +22,25 @@
 
         <div class="row">
             <div class="col-xs-12">
-                <div class="input_title" placeholder="Enter Your ToDo Task Here!" onkeydown="insert(this)">WHAT ARE YOUR ToDo's FOR TODAY? </div></div>
+                <div class="input_title">WHAT ARE YOUR ToDo's FOR TODAY? </div></div>
         </div>
 
         <div class="row">
             <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-3 col-md-5 col-lg-offser-3 col-lg-6 input_field text-center">
-                <input name="task">
+                <input name="task" placeholder="Enter Your ToDo Here!" type="text" onkeydown="insert(this)" />
             </div>
         </div>
 
         <div class="row">
             <ul class="task-list">
                 <li class="task-items">
-                    <div>
+                    <div class="symbols">
                         <div class="task-heading"></div>
                         <div class="status">
-                            <i class="fa fa-check"></i>
-                            <i class="fa fa-undo"></i>
+                            <i class="fa fa-check" onclick="update()"></i>
                         </div>
                         <div class="delete">
-                            <i class="fa fa-trash-o"></i>
+                            <i class="fa fa-trash-o" onclick="del()"></i>
                         </div>
                     </div>
                 </li>

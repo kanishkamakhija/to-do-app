@@ -28,5 +28,22 @@ var todo_arr = [];
 function insert(ele) {
     if(event.key === 'Enter') {
         todo_arr.push(ele.value);
+        var fn = ele.value;
+        console.log(fn);
+        $('.task-heading ul').append('<li>' +fn+ '</li>');
+
     }
+
+}
+
+
+function del()
+{
+
+}
+
+function update()
+{
+let class1 = $(".delete").children('i').attr('class');
+console.log(class1);
 }
