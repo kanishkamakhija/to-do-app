@@ -22,28 +22,32 @@ document.querySelectorAll('.clock')[0].innerHTML = harold(hours) + ":" + harold(
 }
 setInterval(clock, 1000);
 
-var todo = document.getElementsByClassName('input_field').value;
 var todo_arr = [];
 
-function insert(ele) {
-    if(event.key === 'Enter') {
+function insert(ele)
+{
+    if(event.key === 'Enter')
+    {
         todo_arr.push(ele.value);
         var fn = ele.value;
         console.log(fn);
-        $('.task-heading ul').append('<li>' +fn+ '</li>');
+        if(todo_arr.length > 0)
+        {
+            $('.item-list ul').append('<div class="col-xs-8"><li>' +fn+ '</div></li> <div class="status col-xs-2"><i class="fa fa-check-circle fa-lg" aria-hidden="true"></i></div> <div class="delete col-xs-2"><i class="fa fa-minus-circle fa-lg" aria-hidden="true"></i>');
+        }
+        else {
+            $('.item-list ul').append('<li>No ToDos Yet!></li>');
+        }
 
     }
 
 }
 
+$(".delete").children('i').click(function() {
 
-function del()
-{
+});
 
-}
-
-function update()
-{
-let class1 = $(".delete").children('i').attr('class');
-console.log(class1);
-}
+$(".item-list ul").children('i').click(function() {
+    console.log("hi");
+    $(this).toggleClass("fa-check-circle fa-retweet");
+});
