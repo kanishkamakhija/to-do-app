@@ -28,26 +28,41 @@ function insert(ele)
 {
     if(event.key === 'Enter')
     {
-        todo_arr.push(ele.value);
-        var fn = ele.value;
-        console.log(fn);
-        if(todo_arr.length > 0)
-        {
-            $('.item-list ul').append('<div class="col-xs-8"><li>' +fn+ '</div></li> <div class="status col-xs-2"><i class="fa fa-check-circle fa-lg" aria-hidden="true"></i></div> <div class="delete col-xs-2"><i class="fa fa-minus-circle fa-lg" aria-hidden="true"></i>');
-        }
-        else {
-            $('.item-list ul').append('<li>No ToDos Yet!></li>');
-        }
+        const $tick = $(`
+            <div class="status col-xs-2">
+                <i class="fa fa-check-circle fa-lg" aria-hidden="true"></i>
+            </div>
+            `);
+        const $cross = $(`
+            <div class="delete col-xs-2">
+                <i class="fa fa-minus-circle fa-lg" aria-hidden="true"></i>
+            </div>
+            `);
 
+        const $li = $(`
+        <li>
+            <div class="col-xs-8 text">${ele.value}</div>
+            <div class="buttons">
+            <div>
+        </li>
+        `);
+
+        $cross.click(function() {
+            console.log(todo_arr);
+            const $par = $(this).parents()[1];
+            const $index = todo_arr.indexOf($par);
+            todo_arr.splice($index, 1);
+            $($par).remove();
+            console.log(todo_arr);
+        });
+
+        $tick.click(function(){
+            $li.children('div').toggleClass("toggleText");
+            $tick.children('i').toggleClass("fa-check-circle fa-retweet");
+        });
+
+        $($li.children('.buttons')[0]).append($tick).append($cross);
+        todo_arr.push($li[0]);
+        $('.item-list ul').append($li);
     }
-
 }
-
-$(".delete").children('i').click(function() {
-
-});
-
-$(".item-list ul").children('i').click(function() {
-    console.log("hi");
-    $(this).toggleClass("fa-check-circle fa-retweet");
-});
