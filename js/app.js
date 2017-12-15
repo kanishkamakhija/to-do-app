@@ -30,19 +30,23 @@ function insert(ele)
     if(event.key === 'Enter')
     {
         const $tick = $(`
-            <div class="status col-xs-2">
+            <div class="status col-xs-1">
                 <i class="fa fa-check-circle fa-lg" aria-hidden="true"></i>
             </div>
             `);
         const $cross = $(`
-            <div class="delete col-xs-2">
+            <div class="delete col-xs-1">
                 <i class="fa fa-minus-circle fa-lg" aria-hidden="true"></i>
             </div>
             `);
 
+        const $update = $(`
+            <div class="update col-xs-1">
+                <i class="fa fa-pencil-square fa-lg" aria-hidden="true"></i>
+            </div>`);
         const $li = $(`
         <li>
-            <div class="col-xs-8 text">${ele.value}</div>
+            <div class="col-xs-9 text">${ele.value}</div>
             <div class="buttons">
             <div>
         </li>
@@ -62,7 +66,7 @@ function insert(ele)
             $tick.children('i').toggleClass("fa-check-circle fa-retweet");
         });
 
-        $($li.children('.buttons')[0]).append($tick).append($cross);
+        $($li.children('.buttons')[0]).append($tick).append($update).append($cross);
         todo_arr.push($li[0]);
         $('.item-list ul').append($li);
         $('input').val('');
