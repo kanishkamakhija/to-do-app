@@ -1,4 +1,5 @@
 var GoogleAuth;
+console.log("testing");
   var SCOPE = 'profile email openid';
   function handleClientLoad() {
       console.log("handleClientLoad");

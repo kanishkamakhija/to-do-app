@@ -1,3 +1,4 @@
+console.log("running app.js");
 function clock() {
     // We create a new Date object and assign it to a variable called "time".
 var time = new Date(),
