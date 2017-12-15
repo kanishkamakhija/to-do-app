@@ -1,6 +1,7 @@
 var GoogleAuth;
   var SCOPE = 'profile email openid';
   function handleClientLoad() {
+      console.log("handleClientLoad");
     // Load the API's client and auth2 modules.
     // Call the initClient function after the modules load.
     gapi.load('client:auth2', initClient);
@@ -10,7 +11,7 @@ var GoogleAuth;
     // Retrieve the discovery document for version 3 of Google Drive API.
     // In practice, your app can retrieve one or more discovery documents.
     var discoveryUrl = 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest';
-
+    console.log("init1");
     // Initialize the gapi.client object, which app uses to make API requests.
     // Get API key and client ID from API Console.
     // 'scope' field specifies space-delimited list of access scopes.
@@ -19,6 +20,7 @@ var GoogleAuth;
         'clientId': '84706686409-jp1aaup95lfn0ed3eet8s87i344jg217.apps.googleusercontent.com',
         'scope': 'profile email openid',
     }).then(function () {
+        console.log("init2");
       GoogleAuth = gapi.auth2.getAuthInstance();
 
       // Listen for sign-in state changes.
