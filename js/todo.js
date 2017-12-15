@@ -1,8 +1,6 @@
 var GoogleAuth;
-console.log("testing");
   var SCOPE = 'profile email openid';
   function handleClientLoad() {
-      console.log("handleClientLoad");
     // Load the API's client and auth2 modules.
     // Call the initClient function after the modules load.
     gapi.load('client:auth2', initClient);
@@ -12,7 +10,6 @@ console.log("testing");
     // Retrieve the discovery document for version 3 of Google Drive API.
     // In practice, your app can retrieve one or more discovery documents.
     var discoveryUrl = 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest';
-    console.log("init1");
     // Initialize the gapi.client object, which app uses to make API requests.
     // Get API key and client ID from API Console.
     // 'scope' field specifies space-delimited list of access scopes.
@@ -21,7 +18,6 @@ console.log("testing");
         'clientId': '84706686409-jp1aaup95lfn0ed3eet8s87i344jg217.apps.googleusercontent.com',
         'scope': 'profile email openid',
     }).then(function () {
-        console.log("init2");
       GoogleAuth = gapi.auth2.getAuthInstance();
 
       // Listen for sign-in state changes.
@@ -60,6 +56,11 @@ console.log("testing");
     var user = GoogleAuth.currentUser.get();
     var isAuthorized = user.hasGrantedScopes(SCOPE);
     if (isAuthorized) {
+      const profile = user.getBasicProfile();
+      console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+     console.log('Name: ' + profile.getName());
+     console.log('Image URL: ' + profile.getImageUrl());
+     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
       $('#sign-in-or-out-button').html('Sign out');
       $('#revoke-access-button').css('display', 'inline-block');
       $('#auth-status').html('You are currently signed in and have granted ' +

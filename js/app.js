@@ -65,5 +65,7 @@ function insert(ele)
         $($li.children('.buttons')[0]).append($tick).append($cross);
         todo_arr.push($li[0]);
         $('.item-list ul').append($li);
+        $('input').val('');
+
     }
 }
