@@ -8,7 +8,7 @@
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" >
     <link href="css/main.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet" type="text/css"/>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script async defer src="https://apis.google.com/js/api.js"
             onload="this.onload=function(){};handleClientLoad()"
@@ -42,7 +42,7 @@
 
         <div class="row">
             <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-3 col-md-5 col-lg-offser-3 col-lg-6 input_field text-center">
-                <input name="task" placeholder="Enter Your ToDo Here!" type="text" onkeydown="insert(this)" />
+                <input id="inp" name="task" placeholder="Enter Your ToDo Here!" type="text" onkeydown="insert(this)" />
             </div>
         </div>
 

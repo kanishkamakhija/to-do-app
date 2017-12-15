@@ -1,4 +1,3 @@
-console.log("running app.js");
 function clock() {
     // We create a new Date object and assign it to a variable called "time".
 var time = new Date(),
@@ -31,18 +30,18 @@ function insert(ele)
     {
         const $tick = $(`
             <div class="status col-xs-1">
-                <i class="fa fa-check-circle fa-lg" aria-hidden="true"></i>
+                <i class="fa fa-check fa-lg" aria-hidden="true"></i>
             </div>
             `);
         const $cross = $(`
             <div class="delete col-xs-1">
-                <i class="fa fa-minus-circle fa-lg" aria-hidden="true"></i>
+                <i class="fa fa-times fa-lg" aria-hidden="true"></i>
             </div>
             `);
 
         const $update = $(`
             <div class="update col-xs-1">
-                <i class="fa fa-pencil-square fa-lg" aria-hidden="true"></i>
+                <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
             </div>`);
         const $li = $(`
         <li>
@@ -52,13 +51,20 @@ function insert(ele)
         </li>
         `);
 
+        $update.click(function() {
+            const $par = $(this).parents()[1];
+            const $index = todo_arr.indexOf($par);
+            const $val = $($par).children('.text')[0].innerHTML;
+            $('input').val($val);
+            todo_arr.splice($index, 1);
+            $($par).remove();
+        });
+
         $cross.click(function() {
-            console.log(todo_arr);
             const $par = $(this).parents()[1];
             const $index = todo_arr.indexOf($par);
             todo_arr.splice($index, 1);
             $($par).remove();
-            console.log(todo_arr);
         });
 
         $tick.click(function(){
