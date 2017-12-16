@@ -17,6 +17,8 @@ body {
     background: -webkit-linear-gradient(top, #1abc9c 0%, #34495e 100%);
     background: linear-gradient(to bottom, #1abc9c 0%, #34495e 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1abc9c', endColorstr='#34495e', GradientType=0);
+
+        color: white;
 }
 
 .clock {
@@ -25,10 +27,19 @@ body {
 }
 
 .input_title, .input_field {
+    background-color: transparent;
     font-family: 'Orbitron', sans-serif;
     text-align: center;
     font-size: 20px;
     font-weight: bold;
+}
+
+.input_field input, .input_field input:focus{
+    outline: 0;
+    border: 0;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+    width: 100%;
 }
 
 .row {
@@ -131,4 +142,18 @@ span.buttonText {
     font-weight: bold;
     /* Use the Roboto font that is loaded in the <head> */
     font-family: 'Roboto', sans-serif;
+}
+
+.btn {
+    display: block;
+	position: relative;
+    float: right;
+    background-color: rgba(0,0,0,0);
+    top: 10px;
+}
+
+.btn button{
+    background-color: rgba(0,0,0,0);
+    border: 0;
+    font-size: 2em;
 }

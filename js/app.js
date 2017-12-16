@@ -35,7 +35,7 @@ function create() {
 
     const $input = $(`
         <div class="row" id="input">
-            <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-3 col-md-5 col-lg-offser-3 col-lg-6 input_field text-center">
+            <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6 input_field text-center">
                 <input id="inp" name="task" placeholder="Enter Your ToDo Here!" type="text" onkeydown="insert(this)" />
             </div>
         </div>
@@ -49,7 +49,21 @@ function create() {
             </ul>
         </div>
         `);
-    $(".container").append($todoTitle).append($input).append($list);
+
+    const $button = $(`
+    <div class="btn">
+        <button id="sign-out">
+            <span><i class="fa fa-power-off"></i></span>
+        </button>
+    </div>
+    `);
+
+    $button.click(function(){
+        console.log("I am being clicked");
+        handleAuthClick();
+    });
+
+    $(".container").append($todoTitle).append($input).append($list).prepend($button);
 
 }
 
@@ -101,6 +115,7 @@ function insert(ele)
             $li.children('div').toggleClass("toggleText");
             $tick.children('i').toggleClass("fa-check-circle fa-retweet");
         });
+
 
         $($li.children('.buttons')[0]).append($tick).append($update).append($cross);
         todo_arr.push($li[0]);

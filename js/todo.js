@@ -28,7 +28,7 @@ var GoogleAuth;
 
       // Call handleAuthClick function when user clicks on
       //      "Sign In/Authorize" button.
-      $('#sign-in-or-out-button').click(function() {
+      $('#sign-in').click(function() {
         handleAuthClick();
       });
 
@@ -57,17 +57,14 @@ var GoogleAuth;
      console.log('Image URL: ' + profile.getImageUrl());
      console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
       create();
-      $('#sign-in-or-out-button').html('Sign out');
+      $('#sign-in').hide();
 
     } else {
-      const $innerButton = `
-      <span class="icon"></span>
-      <span class="buttonText">Google</span>
-      `
-      $('#sign-in-or-out-button').html($innerButton);
       $('#title').remove();
       $('#input').remove();
       $('#list').remove();
+      $('#sign-out').remove();
+      $('#sign-in').show();
 
     }
   }
@@ -75,8 +72,3 @@ var GoogleAuth;
   function updateSigninStatus(isSignedIn) {
     setSigninStatus();
   }
-
-  $(".auth").click(function() {
-  console.log("testing");
-
-  });
