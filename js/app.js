@@ -29,7 +29,7 @@ $(".auth").click(function() {
     <span class="icon"></span>
     <span class="buttonText">Google</span>
     `
-console.log($('#sign-in-or-out-button').html($innerButton));
+console.log($('.buttonText').html($innerButton));
     // if($(this).html() === 'Google')
 
     const $todoTitle = $(`
