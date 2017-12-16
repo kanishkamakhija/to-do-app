@@ -65,7 +65,9 @@ var GoogleAuth;
       <span class="buttonText">Google</span>
       `
       $('#sign-in-or-out-button').html($innerButton);
-      $('.container').remove('#title').remove('#input').remove('#list');
+      $('#title').remove();
+      $('#input').remove();
+      $('#list').remove();
 
     }
   }
