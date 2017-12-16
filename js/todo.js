@@ -56,16 +56,25 @@ var GoogleAuth;
      console.log('Name: ' + profile.getName());
      console.log('Image URL: ' + profile.getImageUrl());
      console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+      create();
       $('#sign-in-or-out-button').html('Sign out');
+
     } else {
       const $innerButton = `
       <span class="icon"></span>
       <span class="buttonText">Google</span>
       `
       $('#sign-in-or-out-button').html($innerButton);
+      $('container').remove('#title').remove('#input').remove('#list');
+
     }
   }
 
   function updateSigninStatus(isSignedIn) {
     setSigninStatus();
   }
+
+  $(".auth").click(function() {
+  console.log("testing");
+
+  });

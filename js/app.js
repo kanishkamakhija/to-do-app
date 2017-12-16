@@ -24,16 +24,9 @@ setInterval(clock, 1000);
 
 var todo_arr = [];
 
-$(".auth").click(function() {
-    const $innerButton = `
-    <span class="icon"></span>
-    <span class="buttonText">Google</span>
-    `
-console.log($('.buttonText').html($innerButton));
-    // if($(this).html() === 'Google')
-
+function create() {
     const $todoTitle = $(`
-        <div class="row">
+        <div class="row" id="title">
             <div class="col-xs-12">
                 <div class="input_title">WHAT ARE YOUR ToDos FOR TODAY? </div>
             </div>
@@ -41,7 +34,7 @@ console.log($('.buttonText').html($innerButton));
         `);
 
     const $input = $(`
-        <div class="row">
+        <div class="row" id="input">
             <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-3 col-md-5 col-lg-offser-3 col-lg-6 input_field text-center">
                 <input id="inp" name="task" placeholder="Enter Your ToDo Here!" type="text" onkeydown="insert(this)" />
             </div>
@@ -49,18 +42,17 @@ console.log($('.buttonText').html($innerButton));
         `);
 
     const $list = $(`
-        <div class="row item-list">
+        <div class="row item-list" id="list">
             <ul>
 
 
             </ul>
         </div>
         `);
-
     $(".container").append($todoTitle).append($input).append($list);
 
+}
 
-});
 
 function insert(ele)
 {
