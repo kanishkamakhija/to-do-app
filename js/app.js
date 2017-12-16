@@ -25,7 +25,11 @@ setInterval(clock, 1000);
 var todo_arr = [];
 
 $(".auth").click(function() {
-console.log($(this).html());
+    const $innerButton = `
+    <span class="icon"></span>
+    <span class="buttonText">Google</span>
+    `
+console.log($('#sign-in-or-out-button').html($innerButton));
     // if($(this).html() === 'Google')
 
     const $todoTitle = $(`
