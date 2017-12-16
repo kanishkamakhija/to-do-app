@@ -32,9 +32,7 @@ var GoogleAuth;
       $('#sign-in-or-out-button').click(function() {
         handleAuthClick();
       });
-      $('#revoke-access-button').click(function() {
-        revokeAccess();
-      });
+
     });
   }
 
@@ -48,9 +46,7 @@ var GoogleAuth;
     }
   }
 
-  function revokeAccess() {
-    GoogleAuth.disconnect();
-  }
+
 
   function setSigninStatus(isSignedIn) {
     var user = GoogleAuth.currentUser.get();
@@ -62,14 +58,12 @@ var GoogleAuth;
      console.log('Image URL: ' + profile.getImageUrl());
      console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
       $('#sign-in-or-out-button').html('Sign out');
-      $('#revoke-access-button').css('display', 'inline-block');
-      $('#auth-status').html('You are currently signed in and have granted ' +
-          'access to this app.');
     } else {
-      $('#sign-in-or-out-button').html('Sign In/Authorize');
-      $('#revoke-access-button').css('display', 'none');
-      $('#auth-status').html('You have not authorized this app or you are ' +
-          'signed out.');
+      const $innerButton = `
+      <span class="icon"></span>
+      <span class="buttonText">Google</span>
+      `
+      $('#sign-in-or-out-button').html($innerButton);
     }
   }
 
